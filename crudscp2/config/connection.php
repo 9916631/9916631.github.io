@@ -1,7 +1,7 @@
 <?php
  
-$host = "https://9916631.github.io/crudscp2/";
-$db = "a9916631_inclassassignment";
+$host = "localhost";
+$db = "crudtestingdatabasemyown";
 $user = "a9916631_zina";
 $pwd = "pleasejustwork";
 
@@ -16,7 +16,7 @@ catch(PDOException $error)
     echo "<h3>Sorry, something went wrong, please try again.</h3>" . $error->getMessage();
 }
 
-$selectAll = "Select * from subject";
+$selectAll = "Select * from crudscptable";
 
 $record = $conn->prepare($selectAll);
 $record->execute();

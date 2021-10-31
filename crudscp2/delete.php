@@ -4,7 +4,7 @@
     if(array_key_exists('id',$_REQUEST)) $id = (int) $_REQUEST['id'];
     if(!is_int($id)) http_response_code(400); // no id supplied - bad request response
     try{
-        $query = "DELETE FROM subject WHERE id = ?";
+        $query = "DELETE FROM crudscptable WHERE id = ?";
 
         $statement = $conn->prepare($query);
 

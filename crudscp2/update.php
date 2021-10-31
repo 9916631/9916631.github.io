@@ -25,7 +25,7 @@ error_reporting(E_ALL);
   include 'config/connection.php';
 
   try {
-    $query = "select * from subject where id = ? limit 0,1"; //if more then one record then limit to first record found
+    $query = "select * from crudscptable where id = ? limit 0,1"; //if more then one record then limit to first record found
 
     $read = $conn->prepare($query);
 
@@ -49,7 +49,7 @@ error_reporting(E_ALL);
     try {
       //insert items from form
       //insert query createing parameters to field use same name as field do this order
-      $query = "update subject set item=:item, class=:class, containment=:containment, description=:description, image=:image where id=:id"; //need to add where ? thing
+      $query = "update crudscptable set item=:item, class=:class, containment=:containment, description=:description, image=:image where id=:id"; //need to add where ? thing
 
       $update = $conn->prepare($query); 
       $statement = $conn->prepare($query);
@@ -149,13 +149,13 @@ error_reporting(E_ALL);
       if (answer) {
         console.log(444444)
         $.ajax({
-          url: "/crud_scp/delete.php?",
+          url: "/crudscp2/delete.php?",
           method: "POST",
           data: {
             id: id
           },
           success: function(result) {
-            window.location.replace("/crud_scp/index.php?action=deleted");
+            window.location.replace("/crudscp2/index.php?action=deleted");
           },
           fail: function(result) {
             console.log('delete failed');

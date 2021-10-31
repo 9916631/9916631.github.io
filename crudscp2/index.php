@@ -57,7 +57,7 @@
     //select record from database
     $scp = trim($_GET['item'], "'");
 
-    $item = "select * from subject where item = '$scp'";
+    $item = "select * from crudscptable where item = '$scp'";
     $subject = $conn->prepare($item);
     $subject->execute();
 

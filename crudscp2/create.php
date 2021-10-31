@@ -22,7 +22,7 @@
        {
          //insert items from form
         //insert query createing parameters to field use same name as field do this order 
-        $query = "insert into subject set item=:item, class=:class, containment=:containment, description=:description, image=:image";
+        $query = "insert into crudscptable set item=:item, class=:class, containment=:containment, description=:description, image=:image";
         
        
         $statement =$conn->prepare($query);//with this you can create the record succesfully
