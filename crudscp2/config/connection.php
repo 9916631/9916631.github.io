@@ -1,6 +1,6 @@
 <?php
  
-$host = "localhost";
+$host = "https://9916631.github.io/crudscp2/";
 $db = "a9916631_inclassassignment";
 $user = "a9916631_zina";
 $pwd = "pleasejustwork";
