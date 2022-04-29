@@ -52,6 +52,20 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         environment-image="shared-assets/environments/moon_1k.hdr" poster="shared-assets/models/NeilArmstrong.webp"
         seamless-poster shadow-intensity="1" camera-controls enable-pan></model-viewer>
 
+    <model-viewer bounds="tight" enable-pan src="Astronaut.glb" ar ar-modes="webxr scene-viewer quick-look"
+        camera-controls environment-image="neutral" poster="poster.webp" shadow-intensity="1">
+
+        <div class="progress-bar hide" slot="progress-bar">
+            <div class="update-bar"></div>
+        </div>
+        <button slot="ar-button" id="ar-button">
+            View in your space
+        </button>
+        <div id="ar-prompt">
+            <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
+        </div>
+    </model-viewer>
+
     <script type="module">
         import { WebXRButton } from './js/util/webxr-button.js';
         import { Scene } from './js/render/scenes/scene.js';
