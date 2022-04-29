@@ -53,6 +53,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         import { vec3 } from './js/render/math/gl-matrix.js';
         import { Ray } from './js/render/math/ray.js';
 
+        // If requested, use the polyfill to provide support for mobile devices
+        // and devices which only support WebVR.
+        import WebXRPolyfill from './js/third-party/webxr-polyfill/build/webxr-polyfill.module.js';
+        if (QueryArgs.getBool('usePolyfill', true)) {
+            let polyfill = new WebXRPolyfill();
+        }
+
         // XR globals.
         let xrButton = null;
         let xrRefSpace = null;
@@ -69,7 +76,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         arObject.visible = false;
         scene.addNode(arObject);
 
-        let flower = new Gltf2Node({ url: 'media/gltf/home-theater/home-theater.gltf' });
+        let flower = new Gltf2Node({ url: 'media/gltf/tree/tree.gltf' });
+        flower.scale = [0.1, 0.1, 0.1];
         arObject.addNode(flower);
 
         let reticle = new Gltf2Node({ url: 'media/gltf/reticle/reticle.gltf' });
@@ -82,7 +90,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         vec3.set(shadow.scale, 0.15, 0.15, 0.15);
         arObject.addNode(shadow);
 
-        const MAX_FLOWERS = 30;
+        const MAX_FLOWERS = 3;
         let flowers = [];
 
         // Ensure the background is transparent for AR.
